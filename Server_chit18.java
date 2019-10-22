@@ -1,5 +1,5 @@
 /* change name of file*/
-import java.net.*;
+/*import java.net.*;
 import java.io.*;
 
 public class Server1
@@ -27,7 +27,36 @@ public class Server1
         srv.close();           //close connection
         s.close();
     }
+}*/
+
+import java.net.*;
+import java.io.*;
+
+public class Server_chit18.java
+{
+	public static void main(String args[])
+	{
+		ServerSocket srv = new ServerSocket(4004);
+		Socket s =srv.accept();
+		DataInputStream in = new DataInputStream(s.getInputStream());
+		DataOutputStream out = new DataOutputStream(s.getOutputStream());
+		BufferedReader br = new BufferedReader(new InputStream(System.in));
+		
+		String str1="", String str2="";
+		while(!str1.equals("stop"))
+		{
+			str1 = in.readUTF();
+			System.out.println("Client says: "+str1);
+			str2 = br.readLine();
+			out.writeUTF(str2);
+			out.flush();
+		}
+		out.close();
+		srv.close();
+		s.close();
+	}
 }
+
 
 
 

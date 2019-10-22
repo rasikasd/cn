@@ -20,8 +20,9 @@ public class Client1
       str2=in1.readUTF();
       System.out.println("Server Says :" + str2);
             
-      }
+    }
       out1.close();
       s.close();
-    }
-   } 
+      
+   }
+} 
